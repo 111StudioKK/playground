@@ -45,7 +45,7 @@ this.setState({	cumulated: parseInt(this.refs.red.getDOMNode().value) + parseInt
 			<input type="range" min={0} max={100}   ref="white" onChange={this.update} />
 				<label>{this.state.white}</label>
 <hr />
-			<input type="range" min={0} max={300}  size={300} value={this.state.cumulated}  r/>
+			<input type="range" min={0} max={300}  value={this.state.cumulated}  onChange={this.update}/>
 			<label> {this.state.cumulated} </label> 
 			</div>
 			);
