@@ -25,14 +25,15 @@ var App = React.createClass({
 					white: this.refs.white.getDOMNode().value
 				});
 
-			this.setState({	cumulated: parseInt(this.refs.red.getDOMNode().value) + parseInt(this.refs.blue.getDOMNode().value) + parseInt(this.refs.white.getDOMNode().value)});
+this.setState({	cumulated: parseInt(this.refs.red.getDOMNode().value) + parseInt(this.refs.blue.getDOMNode().value) + parseInt(this.refs.white.getDOMNode().value)});
+	
 	},
 
 	render:function(){
 		return (
 			<div>
 			RED:
-			<input type="range" min={0} max={200} ref="red" onChange={this.update} /> 
+			<input type="range" min={0} max={100} ref="red" onChange={this.update} /> 
 			<label>{this.state.red}</label>
 			+<br />
 			BLUE:
@@ -44,6 +45,7 @@ var App = React.createClass({
 			<input type="range" min={0} max={100}   ref="white" onChange={this.update} />
 				<label>{this.state.white}</label>
 <hr />
+			<input type="range" min={0} max={300}  size={300} value={this.state.cumulated}  r/>
 			<label> {this.state.cumulated} </label> 
 			</div>
 			);
