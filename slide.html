@@ -20,12 +20,12 @@ var App = React.createClass({
 	{
 	
 		this.setState({					
-					red: this.refs.red.getDOMNode().value,
-					blue: this.refs.blue.getDOMNode().value,
-					white: this.refs.white.getDOMNode().value
+					red: parseInt(this.refs.red.getDOMNode().value),
+					blue: parseInt(this.refs.blue.getDOMNode().value),
+					white: parseInt(this.refs.white.getDOMNode().value)
 				});
 
-this.setState({	cumulated: parseInt(this.refs.red.getDOMNode().value) + parseInt(this.refs.blue.getDOMNode().value) + parseInt(this.refs.white.getDOMNode().value)});
+this.setState({	cumulated: this.state.red + this.state.blue + this.state.white});
 	
 	},
 
