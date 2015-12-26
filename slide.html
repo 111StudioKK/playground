@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+	<title>Slider count</title>
+	<script src="http://fb.me/react-0.12.2.js"></script>
+	<script src="http://fb.me/JSXTransformer-0.12.2.js"> </script>
+</head>
+<body>
+<script type="text/jsx">
+
+var App = React.createClass({
+		getInitialState:function(){
+		return {red: 0, 
+				blue:0,
+				white:0,
+		  cumulated: 0}
+	},
+	update:function(e)
+	{
+	
+		this.setState({					
+					red: parseInt(this.refs.red.getDOMNode().value),
+					blue: parseInt(this.refs.blue.getDOMNode().value),
+					white: parseInt(this.refs.white.getDOMNode().value)
+				});
+
+this.setState({	cumulated: this.state.red + this.state.blue + this.state.white});
+	
+	},
+
+	render:function(){
+		return (
+			<div>
+			RED:
+			<input type="range" min={0} max={100} ref="red" onChange={this.update} /> 
+			<label>{this.state.red}</label>
+			+<br />
+			BLUE:
+			<input type="range"  min={0} max={100}  ref="blue" onChange={this.update} />
+				<label>{this.state.blue}</label>	
+				+
+				<br />
+				WHITE:
+			<input type="range" min={0} max={100}   ref="white" onChange={this.update} />
+				<label>{this.state.white}</label>
+<hr />
+			<input type="range" min={0} max={300}  value={this.state.cumulated}  onChange={this.update}/>
+			<label> {this.state.cumulated} </label> 
+			</div>
+			);
+	}
+});
+
+
+React.render(<App />, document.body);
+</script>
+</body>
+</html>
