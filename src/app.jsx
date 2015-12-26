@@ -1,9 +1,9 @@
 var React = require('react');
-var Button = require('./button');
+var Dropdown = require('./dropdown');
 var ReactDOM = require('react-dom');
 
 var options = {
-  title:"Choose an option",
+  title:"What do you want?",
   items:[
     "option 1",
     "option 2",
@@ -11,5 +11,5 @@ var options = {
   ]
 };
 
-var element = React.createElement(Button, options);
+var element = React.createElement(Dropdown, options);
 ReactDOM.render(element, document.querySelector('.container'));
