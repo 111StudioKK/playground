@@ -5,9 +5,9 @@ var ReactDOM = require('react-dom');
 var options = {
   title:"What do you want?",
   items:[
-    "option 1",
-    "option 2",
-    "option 3"
+    "Eat",
+    "Drink",
+    "Sleep"
   ]
 };
 
