@@ -4,7 +4,10 @@ var ListItems = require('./listItems.jsx');
 
 module.exports = React.createClass({
   getInitialState:function(){
-    return {open:false};
+    return {
+      open:false,
+      SelectedItem:'Chose something'
+    };
   },
   buttonClicked:function(){
     this.setState({open: !this.state.open});
@@ -32,7 +35,7 @@ module.exports = React.createClass({
       dataToggle="dropdown"
       ariaHaspopup="true"
       ariaExpanded="true"
-      label={(this.state.SelectedItem||this.props.title)} />
+      label={this.state.SelectedItem} />
 
       <ul className={"dropdown-menu " + (this.state.open?"show":"")} >
       {list}
