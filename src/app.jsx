@@ -7,29 +7,42 @@ var Dropdown = require ('./dropdown');
 var Firebase = require ('firebase');
 var ReactFire = require('reactfire');
 var rootUrl= 'https://brilliant-inferno-4133.firebaseio.com/';
-var ListDebug = require('./listdebug');
+var ListEdit = require('./listedit');
 
 var app = React.createClass({
   mixins: [ ReactFire],
   componentWillMount: function(){
-    this.bindAsObject(new Firebase(rootUrl + 'items/'), 'items');
+    var FBase = new Firebase(rootUrl + 'items/')
+    this.bindAsObject(FBase, 'items');
+    FBase.on("value",this.DataLoaded)
+  },
+  DataLoaded:function(){
+    this.setState({DataReady:true})
   },
   getInitialState:function(){
     return {
-      items: {}
+      items: {},
+      DataReady:false
     };
   },
   render:function(){
+    console.log(this.state.DataReady);
     return <div className="row panel panel-default">
       <div className="col-md-8 cold-md-offset-2">
         <h2 className="text-center">
-          Dropbox powered by Firebase and React
+          Dropbox editor powered by Firebase and React
         </h2>
         <Header base={this.firebaseRefs.items}/>
-        <Dropdown items={this.FireBaseToItemsArray()} />
+        <hr />
+          <div className={"content " + (this.state.DataReady? 'loaded':'')} >
+            <ListEdit items={this.state.items} />
+          </div>
+          <hr />
+            <Dropdown items={this.FireBaseToItemsArray()} />
       </div>
     </div>
   },
+
 FireBaseToItemsArray:function(){
     if (this.state.items && Object.keys(this.state.items).lenght ===0){
       return "";
