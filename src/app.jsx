@@ -7,7 +7,7 @@ var Dropdown = require ('./dropdown');
 var Firebase = require ('firebase');
 var ReactFire = require('reactfire');
 var rootUrl= 'https://brilliant-inferno-4133.firebaseio.com/';
-var ListDebug = require('./listdebug');
+var ListEdit = require('./listedit');
 
 var app = React.createClass({
   mixins: [ ReactFire],
@@ -26,7 +26,7 @@ var app = React.createClass({
           Dropbox powered by Firebase and React
         </h2>
         <Header base={this.firebaseRefs.items}/>
-        <Dropdown items={this.FireBaseToItemsArray()} />
+        <ListEdit items={this.state.items} />
       </div>
     </div>
   },
