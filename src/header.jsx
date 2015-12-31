@@ -22,11 +22,12 @@ module.exports = React.createClass({
   },
   add:function(){
     this.props.base.push({
+    checked: false,
     text: this.state.text
   });
   this.setState({
     text:""
-  }); 
+  });
   },
   inputChange:function(event){
   this.setState({
